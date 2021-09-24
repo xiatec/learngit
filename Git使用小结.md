@@ -107,5 +107,37 @@ git clone , 但必须知道仓科的地址
 合并分支时,加上--no-ff参数就可以使用普通模式进行合并,合并后的历史有分支,能看出曾做过合并,而fast forward合并看不出来曾做过合并
 ```
 
+bug分支
+
+```
+修复bug时,通过创建新的bug分支进行修复,然后合并,最后删除
+当手头有工作未完成时,先把工作现场git stash一下,然后去修复bug,修复后,再git stash pop,回到工作现场
+在master分支上修复的bug,想要合并到当前dev分支,可以用git cherry-pick <commit>,把bug提交的修改复制到当前分支,避免重复劳动
+```
+
+Feature分支
+
+```
+开发一个新的feature,最好新建一个分支
+如果要丢弃一个没有合并过的分支,通过git branch -D <name>强行删除
+```
+
+多人协作
+
+```
+查看远程库信息,使用git remote -v
+
+本地新建的分支如果不推送到远程,其他人是看不见的
+
+从本地推送分支,使用git push origin branch-name,如果推送失败,先git pull抓取远程的新提交
+
+从本地创建和远程分支对应的分支,使用git checkout -b branch-name origin /branch-name,本地和远程分支名称尽量一致
+
+建立本地和远程分支的关联,使用git branch --set-upstream branch-name origin/branch-name
+
+从远程抓取分支,使用git pull,有冲突则先处理冲突
+
+```
+
 
 
