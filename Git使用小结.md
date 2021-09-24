@@ -74,5 +74,38 @@ ssh -keygen -t rsa -C "youremail@example.com"
 4.此后,每次本地库提交后,使用git push origin master推送最新修改
 ```
 
+克隆仓库
+
+```
+git clone , 但必须知道仓科的地址
+```
+
+#### 四.分支管理
+
+创建与合并分支
+
+```
+查看分支: git branch
+创建分支: git branch <name>
+切换分支: git checkout <name> or git switch <name>
+创建+切换分支: git checkout -b <name> or git switch -c <name>
+合并某分支到当前分支: git merge <name>
+删除分支: git branch -d <name>
+```
+
+解决冲突
+
+```
+当git无法自动合并分支时,就必须首先解决冲突,解决冲突后再提交
+解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容,再提交
+用git log --graph查看分支合并图
+```
+
+分支管理策略
+
+```
+合并分支时,加上--no-ff参数就可以使用普通模式进行合并,合并后的历史有分支,能看出曾做过合并,而fast forward合并看不出来曾做过合并
+```
+
 
 
